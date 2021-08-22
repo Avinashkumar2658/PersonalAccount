@@ -1,0 +1,37 @@
+.content {
+    background: black
+}
+.color {
+    color: red;
+}
+.heading {
+    color:rgb(255, 255, 255); 
+    font: 1em sans-serif; 
+    font-size: 1.5rem;
+}
+.container-fluid {
+    width: 67%;
+    margin-left: 28%;
+    margin-top: 5rem;
+}
+.btnText {
+    color:white; 
+    font: 2em sans-serif; 
+    font-weight: normal;
+}
+button {
+    width: 10rem;
+}
+
+.btnsubmit {
+    background: rgb(35, 230, 77)
+}
+
+.btncancel {
+    background: rgb(243, 0, 0);
+}
+
+.hp {
+    font: 1em sans-serif;
+    font-weight: 500;
+}

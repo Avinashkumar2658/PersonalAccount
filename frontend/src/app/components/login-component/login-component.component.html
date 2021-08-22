@@ -1,0 +1,34 @@
+<div class="container-fluid">
+  <div *ngIf="invalidCreditials" class="alert alert-danger alert-dismissible mb-0 pb-0">
+    <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+    Invalid Username or Password !
+  </div>
+  <div class="loginbox"> <img src="../assets/dist/img/avtar.png" class="avatar">
+    <h1>Login Here</h1>
+    <form method="post" action="#">
+      <div class="form-group">
+        <p>Username</p>
+        <input type="text" #userName="ngModel" placeholder="username" ngModel [(ngModel)]="username" name="userName" 
+          pattern="[a-zA-Z0-9_]{5,15}$" class="mt" [ngClass]="{
+            'is-invalid': !userName?.valid && userName?.touched,  
+            'is-valid': userName?.valid && userName?.touched }" required />
+      </div>  
+      <div class="form-group">
+        <p>Password</p>
+        <input type="password" #password="ngModel"  name="password" ngModel [(ngModel)]="user_password" placeholder="&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;&#9679;" 
+          pattern="^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*_=+-]).{8,15}$" class="mt" [ngClass]="{ 
+              'is-invalid': !password?.valid && password?.touched,  
+              'is-valid': password?.valid && password?.touched }" required/>
+        <small *ngIf="password?.errors?.required && password?.touched" class="form-text mt custom-invalid-feedback color">Field is required</small>
+        <small *ngIf="password?.errors?.pattern && password?.touched" class="form-text mt custom-invalid-feedback color">Password is invalid.Min 8 character & Max 15 character. Password must contain at least one small & one capital alphabet and one special symbol and numeric digit.</small> 
+      </div>  
+      <a role="button" (click)="signIn()" class="loginButton btn btn-block pt-2"> login </a>
+      <div class="row">
+        <div class="col-6 ml-0 mr-0 pl-0 mt-3"><a role="button" class="pl-0" (click)="forget_password()">Lost your password?</a> </div> 
+        <div class="col-6 ml-0 mr-0 pl-0 mt-3">
+        <a role="button" class="pr-0 pl-0 ml-0 mr-0" (click)="register()">Don't have an account?</a>
+      </div>
+    </div>
+    </form>
+  </div>
+</div>

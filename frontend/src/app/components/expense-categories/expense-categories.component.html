@@ -1,0 +1,47 @@
+<div class="container-fluid  pt-0 font-weight-bold">
+    <section class="content  pt-1 text-center">
+        <h1 class="heading">Expenses Categories</h1>
+    </section>
+    <form action="" #expenseCategoryForm="ngForm">
+        <div class="row  form-group">
+            <div class="col-sm-6 pl-4">
+                <label for="fntext">
+          <h1 class="hp">Category Name<sup class="color">*</sup></h1>
+        </label>
+            </div>
+            <div class="col-sm-6 pr-5">
+                <input type="text" ngModel [(ngModel)]='expenseCategory.expenseCategoryName' required minlength="3" placeholder="Enter Name" name="po" id="fntext" #bindname="ngModel" [ngClass]="{'form-control': true, 
+         'is-invalid': !bindname?.valid && bindname?.touched,  
+         'is-valid': bindname?.valid && bindname?.touched}">
+                <small id="fnHelp" *ngIf="bindname?.errors?.required && bindname?.touched" class="form-text custom-invalid-feedback color">Field is required</small>
+                <small id="fnHelp" *ngIf="bindname?.errors?.minlength && bindname?.touched" class="form-text custom-invalid-feedback color">First Name requires atleast 3 characters.</small>
+                <BR>
+
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-sm-6 pl-4">
+                <label for="fntext">
+          <h1 class="hp">Category Detail<sup class="color">*</sup></h1>
+        </label>
+            </div>
+            <div class="col-sm-6 pr-5">
+                <textarea ngModel required rows="2" cols="50" minlength="5"   [(ngModel)]='expenseCategory.expenseCategoryDetails' #category="ngModel" name="catdetail" placeholder="Enter Categorie Detail" [ngClass]="{'form-control': true, 
+                'is-invalid': !category?.valid && category?.touched,  
+                'is-valid': category?.valid && category?.touched}"></textarea>
+                <small id="fnHelp" *ngIf="category?.errors?.required && category?.touched" class="form-text custom-invalid-feedback color">Field is required
+                </small>
+                <small id="fnHelp" *ngIf="category?.errors?.minlength && category?.touched" class="form-text custom-invalid-feedback color">First Name requires atleast 5 characters.
+                </small><BR>
+            </div>
+        </div>
+        <div class="d-flex justify-content-between ">
+            <button type="button" class="btn btn-sm btn-md btncancel btn-xs btn-lg">
+                <h3 class="mt-0 mb-0 btnText" routerLink=" ">Cancel</h3>
+            </button>
+            <button type="button" class="btn btnsubmit btn-sm btn-md  btn-xs btn-lg" (click)="saveExpenseCategory(expenseCategoryForm)" [disabled]="expenseCategoryForm.invalid">
+                <h3 class="mt-0 mb-0 btnText"> <span *ngIf="spinner_status == 1" class="spinner-border spinner-border-sm text-white"></span>&nbsp;&nbsp;Submit</h3>
+            </button>
+        </div>
+    </form>
+</div>

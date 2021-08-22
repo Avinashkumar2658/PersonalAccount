@@ -1,0 +1,109 @@
+.differentTable,
+.differentTable td {
+    border-color: black;
+}
+
+td {
+    padding-left: 0 !important;
+}
+
+.table {
+    margin-bottom: 20px;
+    background-color: white;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    float: left;
+}
+
+td {
+    border: none;
+}
+
+.inner {
+    min-width: 850px;
+    height: 86vh;
+    margin-top: 0.3%;
+    padding-top: 0%;
+}
+
+.outer {
+    padding: 0% !important;
+    margin-top: 1.8%;
+    margin-left: 28%;
+    overflow-y: scroll;
+    overflow-x: scroll;
+    width: 70%;
+}
+
+.heading {
+    margin-bottom: 0rem;
+    margin-top: 0rem;
+    color: white;
+    font: 1.8em sans-serif;
+}
+.bgLightBrown {
+    background-color: rgb(77, 72, 72);
+}
+.tableHeader {
+    text-align: center;
+}
+.colorDarkGreen {
+    color:#16ff01;
+}
+.font {
+    color: rgb(255, 255, 255);
+    font: 1em sans-serif;
+    margin-bottom: -0.25rem;
+}
+.bgBlack {
+    background-color: rgb(0, 0, 0);
+}
+.fontFooterTitle {
+    font: 1.5em sans-serif;
+    color: white;
+    font-weight: 400;
+}
+.tableHeader
+.pdLeft5 {
+    padding-left: 0.5rem !important;
+}
+.container {
+    background-color: white; 
+    max-width: 100%; 
+    padding: 0rem !important;
+}
+.button {
+    text-align: center;
+}
+.tableHeading {
+    background-color: rgb(0, 0, 0);
+}
+.tableRight {
+    padding-top: 0 !important; 
+    padding-bottom: 0 !important
+}
+
+@media screen and (max-width: 970px) {
+    .outer {
+        padding: 0% !important;
+        margin: 2.5%;
+        width: 95%;
+        height: 86vh;
+    }
+}
+
+.new {
+    float: left;
+    width: 50%;
+    background-color: white;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+}
+
+#table_left {
+    border-right: 3px solid white;
+}
+
+#table_right {
+    border-left: 4px solid white;
+}

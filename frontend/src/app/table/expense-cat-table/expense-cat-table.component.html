@@ -1,0 +1,49 @@
+<div class="container-fluid outer">
+    <div class="inner">
+        <div class="d-flex justify-content-center floattop sticky-top ">
+            <h1 class="mt mb pt-1 pb-1">Expense Categories</h1>
+            <button type="button" class="btn btnfixed" (click)="addNewExpenseCategory()">
+                <h4 class="newCategory">New Category</h4></button>
+        </div>
+        <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table table-bordered table-sm table-striped">
+            <thead style="background-color:  rgb(0, 0, 0);">
+                <tr>
+                    <th>
+                        <h3 class="mb-0 mth color">Category Name</h3>
+                    </th>
+                    <th>
+                        <h3 class="mth mb-0 color">Category Details</h3>
+                    </th>
+                    <th>
+                        <h3 class="mth mb-0 color">Action</h3>
+                    </th>
+
+                </tr>
+            </thead>
+            <tbody>
+
+                <tr *ngFor="let detail of details" style="height:2px; padding-top: 0.5rem; padding-bottom: -10rem;">
+                    <td>{{detail.expenseCategoryName}}</td>
+                    <td>{{detail.expenseCategoryDetails}}</td>
+                    <td style="line-height: 0.6rem;">
+                        <button type="button" class="btn" style="color: rgb(77, 255, 7); padding-bottom: 0rem;  margin-top:-0.8rem; margin-bottom: -0.2rem;" (click)="updateExpenseCategory(detail.expenseCategoryId)">Edit</button> &nbsp;
+                        <button type="button" class="btn" style="color: rgb(255, 7, 7); padding-bottom: 0rem; margin-top: -2rem; margin-bottom: -1.5rem; " (click)="deleteExpenseCategory(detail.expenseCategoryId)">Delete</button>
+                    </td>
+                </tr>
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th>Category Name</th>
+                    <th>category Details</th>
+                    <th></th>
+                </tr>
+            </tfoot>
+        </table>
+
+
+
+
+
+    </div>
+
+</div>

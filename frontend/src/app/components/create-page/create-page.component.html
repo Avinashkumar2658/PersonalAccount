@@ -1,0 +1,32 @@
+<div class="content-wrapper">
+  
+    <form #createPage="ngForm">
+        <div class="card">
+            <h1 class="text-center"><span>Create</span> <span class="heading">  Notes</span></h1>
+            <div class="row">
+                <div class="col-12">
+                    <div class="comment-box ml-2">
+                        <div class="comment-area"> <textarea class="form-control" #heading="ngModel" ngModel  name="heading" placeholder="heading" [(ngModel)]="diary.notes_heading" rows="3" minlength="5" required></textarea> </div>
+                    </div>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-12">
+                    <div class="comment-box ml-2">
+                        <div class="comment-area"> <textarea class="form-control" #detail="ngModel" ngModel  name="detail" placeholder="detail" [(ngModel)]="diary.notes_detail" rows="6" minlength="5" required></textarea> </div>
+                        <div class="comment-btns mt-2">
+                            <div class="row">
+                                <div class="col-6">
+                                </div>
+                                <div class="col-6">
+                                    <div class="pull-right"> <button class="btn btn-success btn-block" (click)="saveDiary(createPage)" [disabled]="createPage.invalid"><span *ngIf="spinner_status == 1" class="spinner-border spinner-border-sm text-white"></span>&nbsp;&nbsp;Save <i class="fa fa-long-arrow-right ml-1"></i></button> </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+  </div>

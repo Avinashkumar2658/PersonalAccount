@@ -1,0 +1,84 @@
+<div class="container-fluid outer">
+    <div class="inner">
+        <form #dayBook="ngForm">
+            <table datatable [dtOptions]="dtOptions" [dtTrigger]="dtTrigger" class="table  table-bordered table-sm table-responsive-sm">
+                <thead>
+                    <tr>
+                        <th style="width: 8.5%;">
+                            <h2 class="fontDayBook">Day Book </h2>
+                        </th>
+                        <th colspan="2" class="text-center">
+                            <h4 class="font mt-0 mb-0">Date From </h4>
+                            <input type="date" #selected_date_from="ngModel" ngModel name="selected_date_from" ngModel [(ngModel)]='from' required/>
+                        </th>
+                        <th colspan="2" class="text-center">
+                            <h4 class="font mt-0 mb-0">To</h4>
+                            <input type="date" #selected_date_to="ngModel" ngModel name="selected_date_to" ngModel [(ngModel)]='to' required/>
+                        </th>
+                        <th class="button ">
+                            <button type="button" [disabled]="dayBook.invalid" (click)="findAllIncome(from, to) ">
+                                <h4 class="mt-0 mb-0 text-white">Show</h4></button>
+                        </th>
+                    </tr>
+                    <th class="text-center" *ngFor="let column of headers ">
+                        <h4 class="font">{{column}}</h4>
+                    </th>
+                    <tr class="bgBlack" *ngIf='content'>
+                        <th colspan="6 " class="text-left expenseHeading">
+                            <h4 class="font">Expenses</h4>
+                        </th>
+                    </tr>
+                </thead>
+                <tr class="pl-0 trRowDetail" *ngFor="let detail of details[1]; index as i ">
+                    <td>
+                        {{i+1}}
+                    </td>
+                    <td>
+                        {{detail[0].expenseAccount}}
+                    </td>
+                    <td>
+                        {{detail[0].transDate}}
+                    </td>
+                    <td class="colorRed text-center">
+                        -{{detail[0].amount}}
+                    </td>
+                    <td class="text-center">
+                        <div *ngIf="detail[0].receiveMode == 'BE' ||'CE' ">
+                            pay
+                        </div>
+                    </td>
+                    <td>
+                        {{detail[0].remark}}
+                    </td>
+                </tr>
+                <td colspan="6 " class="text-left text-white bgBlack" *ngIf='content2'><strong>
+                <h4 class="font">Incomes</h4>
+                </strong></td>
+                <tbody>
+                    <tr class="pl-0 text-left" *ngFor="let detail of details[0]; index as i ">
+                        <td>
+                            {{i+1}}
+                        </td>
+                        <td>
+                            {{detail[0].incomeAccount}}
+                        </td>
+                        <td>
+                            {{detail[0].transDate}}
+                        </td>
+                        <td class="colorGreen text-center">
+                            +{{detail[0].amount}}
+                        </td>
+                        <td class="text-center">
+                            <div *ngIf="detail[0].receiveMode == 'BI' || 'CI' ">
+                                receive
+                            </div>
+                        </td>
+                        <td>
+                            {{detail[0].remark}}
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>

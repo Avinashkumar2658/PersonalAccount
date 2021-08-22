@@ -1,0 +1,88 @@
+.navbar {
+    background-color: rgb(77, 72, 72);
+    height: 42px;
+}
+
+.pt5 {
+    padding-top: 10.8px;
+}
+
+.center {
+    margin: auto;
+}
+
+.nav-link {
+    color: rgb(255, 255, 255);
+    font: 1em sans-serif;
+    font-weight: 100;
+}
+
+a.selected {
+    color: rgb(9, 255, 0);
+}
+.picture-container{
+    position: relative;
+    cursor: pointer;
+    text-align: center;
+  }
+  .picture{
+    width: 36px;
+    height: 36px;
+    background-color: #999999;
+    border: 1px solid #CCCCCC;
+    
+    border-radius: 50%;
+    margin: 0px auto;
+    overflow: hidden;
+    transition: all 0.2s;
+    -webkit-transition: all 0.2s;
+  }
+  .picture:hover{
+    border-color: #2ca8ff;
+  }
+  .content.ct-wizard-green .picture:hover{
+    border-color: #05ae0e;
+  }
+  .content.ct-wizard-blue .picture:hover{
+    border-color: #3472f7;
+  }
+  .content.ct-wizard-orange .picture:hover{
+    border-color: #ff9500;
+  }
+  .content.ct-wizard-red .picture:hover{
+    border-color: #ff3b30;
+  }
+  .picture input[type="file"] {
+    cursor: pointer;
+    display: block;
+    height: 100%;
+    left: 0;
+    opacity: 0 !important;
+    position: absolute;
+    top: 0;
+    width: 100%;
+  }
+  
+  .picture-src{
+    width: 100%;
+    
+  }
+  .menu {
+    display: none;
+  }
+@media screen and (max-width: 670px) {
+    .fullWidth {
+        display: none !important;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .fullWidthHome {
+        display: none !important;
+    }
+}
+@media screen and (max-width: 1010px) {
+  .menu {
+      display: block !important;
+  }
+}

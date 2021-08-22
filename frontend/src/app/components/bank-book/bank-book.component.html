@@ -1,0 +1,71 @@
+<div class="container-fluid outer">
+    <div class="inner">
+        <form #bankBook="ngForm">
+            <table class="table table-bordered table-responsive-xl table-sm">
+                <thead>
+                    <tr>
+                        <th style="width:8.5%;">
+                            <h2 class="text-left fontBankBook">Bank Book</h2>
+                        </th>
+                        <th class="text-center">
+                            <h4 class="font mt-0 mb-0">Date From </h4>
+                            <input  type="date" #selected_date_from="ngModel" ngModel name="selected_date_from" [(ngModel)]="from" required/>
+                        </th>
+                        <th class="text-center">
+                            <h4 class="font mt-0 mb-0">To</h4>
+                            <input type="date" #selected_date_to="ngModel" ngModel name="selected_date_to" [(ngModel)]="to" required/>
+                        </th>
+                        <th class="button">
+                            <button type="button" (click)="findAllBankTransaction(from, to)" [disabled]="bankBook.invalid">
+                            <h4 class="mt-0 mb-0 text-white">Show</h4>
+                        </button>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th class="thHeading" *ngFor="let column of headers ">
+                            <h4 class="text-white font mb-0">
+                                {{column}}
+                            </h4>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr class="trRowDetail" *ngFor="let detail of details; index as i; ">
+                        <td>
+                            {{i + 1}}
+                        </td>
+                        <td>
+                            {{detail[0]}}
+                        </td>
+                        <td>
+                            <div *ngIf="detail[2] == 'BI'" class="biColor">
+                                + {{detail[1]}}
+                            </div>
+                            <div *ngIf="detail[2] == 'BE'" class="colorRed">
+                                - {{detail[1]}}
+                            </div>
+
+                        </td>
+                        <td>
+                            <div *ngIf="detail[2] == 'BI'">
+                                receive
+                            </div>
+                            <div *ngIf="detail[2] == 'BE'">
+                                pay
+                            </div>
+                        </td>
+                    </tr>
+                    <tr class="bgBlack">
+                        <td colspan="2 ">
+                            <h4 class="fontBankBook">Closing Balance </h4>
+                        </td>
+
+                        <td colspan="2 " class="closingBalance">
+                            <h3 class="fontBankBook">{{closingBalance}}</h3>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </form>
+    </div>
+</div>

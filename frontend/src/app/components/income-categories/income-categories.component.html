@@ -1,0 +1,50 @@
+<div class="container-fluid  pt-0 font-weight-bold">
+    <section class="conatiner content pt-1 text-center">
+        <h1 class="heading">Income Categories</h1>
+    </section>
+    <form action="" #incomesCategoryForm="ngForm">
+        <div class="row form-group">
+            <div class="col-sm-6 pl-4">
+                <label for="fntext">
+          <h1 class="hp">Category Name<sup class="color">*</sup></h1>
+        </label>
+            </div>
+            <div class="col-sm-6 pr-5">
+
+                <input type="text" ngModel [(ngModel)]='incomeCategory.incomeCategoryName' required minlength="5" placeholder="Enter Name" name="po" id="fntext" #bindname="ngModel" [ngClass]="{'form-control': true, 
+         'is-invalid': !bindname?.valid && bindname?.touched,  
+         'is-valid': bindname?.valid && bindname?.touched}">
+                <small id="fnHelp" *ngIf="bindname?.errors?.required && bindname?.touched" class="form-text custom-invalid-feedback color">Field is required</small>
+                <small id="fnHelp" *ngIf="bindname?.errors?.minlength && bindname?.touched" class="form-text custom-invalid-feedback color">requires atleast 5 characters.</small>
+                <BR>
+
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col-sm-6 pl-4">
+                <label for="fntext">
+          <h1 class="hp">Category Detail<sup class="color">*</sup></h1>
+        </label>
+            </div>
+            <div class="col-sm-6 pr-5">
+                <textarea ngModel required minlength="5" rows="2" cols="50" [(ngModel)]='incomeCategory.incomeCategoryDetails' #category="ngModel" name="catdetail" placeholder="Enter Categorie Detail" [ngClass]="{'form-control': true, 
+          'is-invalid': !category?.valid && category?.touched,  
+          'is-valid': category?.valid && category?.touched}"></textarea>
+                <small id="fnHelp" *ngIf="category?.errors?.required && category?.touched" class="form-text custom-invalid-feedback color">Field is required
+        </small>
+                <small id="fnHelp" *ngIf="category?.errors?.minlength && category?.touched" class="form-text custom-invalid-feedback color">requires atleast 5 characters.
+        </small>
+                <BR>
+            </div>
+        </div>
+        <div class="d-flex justify-content-between ">
+            <button type="button" class="btn btncancel btn-sm btn-xs btn-md  btn-lg">
+                <h3 class="mt-0 mb-0 btnText" routerLink=" ">Cancel</h3>
+            </button>
+            <button type="button" class="btn btnsubmit  btn-sm btn-xs btn-md btn-lg" (click)="saveIncomeCategory(incomesCategoryForm)" [disabled]="incomesCategoryForm.invalid">
+                <h3 class="mt-0 mb-0 btnText"> <span *ngIf="spinner_status == 1" class="spinner-border spinner-border-sm text-white"></span>&nbsp;&nbsp;Submit</h3>
+            </button>
+
+        </div>
+    </form>
+</div>

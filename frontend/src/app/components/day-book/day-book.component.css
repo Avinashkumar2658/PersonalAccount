@@ -1,0 +1,86 @@
+     .differentTable,
+     .differentTable td {
+         border-color: black;
+     }
+     
+     td {
+         padding-left: 0 !important;
+     }
+     .colorRed {
+        color: red;
+     }
+     .colorGreen {
+        color: rgb(3, 87, 3);
+     }
+     tbody {
+        line-height: 0.9rem; 
+        text-align: left; 
+        padding-left: 0%;
+        background-color:#FFFFFF;
+     }
+     thead {
+        background-color: rgb(77, 72, 72);
+     }
+     .bgBlack {
+        background: black;
+     }
+     button {
+        margin-bottom: 0.4rem; 
+        background-color: rgb(35, 245, 87); 
+     }
+     .expenseHeading {
+        margin-top: 0%; 
+        margin-bottom: -1.8rem;
+     }
+     .trRowDetail {
+        text-align: left; 
+        line-height: 0.9rem;
+     }
+     .font {
+         color: rgb(255, 255, 255);
+         font: 1em sans-serif;
+         margin-bottom: -0.25rem;
+     }
+     
+     .fontDayBook {
+         color: rgb(255, 255, 255);
+         font: 1.3em sans-serif;
+         margin-bottom: -0.2rem;
+         margin-top: -2rem;
+     }
+     
+     .inner {
+         min-width: 850px;
+         height: 86vh;
+         margin-top: 0.3%;
+         padding-top: 0%;
+     }
+     
+     .outer {
+         padding: 0% !important;
+         margin-top: 1.8%;
+         margin-left: 28%;
+         overflow-y: scroll;
+         overflow-x: scroll;
+         width: 70%;
+     }
+     
+     .button {
+         text-align: center;
+     }
+     
+     .tableHeader {
+         text-align: center;
+         padding-top: 0 !important;
+         padding-bottom: 0 !important;
+         /* margin: auto; */
+     }
+     
+     @media screen and (max-width: 970px) {
+         .outer {
+             padding: 0% !important;
+             margin: 2.5%;
+             width: 95%;
+             height: 86vh;
+         }
+     }

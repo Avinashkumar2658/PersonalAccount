@@ -1,0 +1,118 @@
+<section class="content" *ngIf='message'>
+
+    <div class="card card-success">
+        <div class="card-header">
+            <h3 class="card-title text-center"> {{message}}</h3>
+            <div class="card-tools">
+                <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
+                    <i class="fas fa-times"></i></button>
+            </div>
+        </div>
+    </div>
+</section>
+<div class="container-fluid wrapper text-black font-weight-bold">
+    <div class="container ">
+        <p class="pt-2 pb-1 heading">Expense</p>
+    </div>
+    <form action="" #expenseForm="ngForm">
+        <div class="row  form-group">
+            <br>
+            <div class="col col-xs-6 col-sm-6 col-md-6 col-lg-6 pl-5"><br>
+                <h4>Expense<sup class="color">*</sup></h4>
+            </div>
+            <div class="col-sm-6 col-xs-6 col-md-6 col-lg-6 pr-5"><br>
+                <input type="text" class="mrInput" #expenseref="ngModel" ngModel [(ngModel)]='expense.expenseAccount' name="expense" placeholder="expense" required [ngClass]="{'form-control': true, 
+                   'is-invalid': !expenseref?.valid && expenseref?.touched,  
+                   'is-valid': expenseref?.valid && expenseref?.touched}">
+                <small id="fnHelp" *ngIf="expenseref?.errors?.required && expenseref?.touched" class="form-text custom-invalid-feedback color">Field is required</small>
+                <small id="fnHelp" *ngIf="expenseref?.errors?.minlength && expenseref?.touched" class="form-text custom-invalid-feedback color">First Name requires atleast 2 characters.
+                </small>
+            </div>
+        </div>
+        <div class="row form-group mb-0">
+
+            <div class="col col-sm-6 col-xs-6 col-md-6 col-lg-6 pl-5 form-group">
+                <label for="fntext">
+        <h4>Category<sup class="color">*</sup></h4>
+      </label>
+            </div>
+            <div class="col-sm-6 col-xs-6 col-lg-6 col-md-6 pr-5">
+
+
+                <select id="inputState" class="form-control" ngModel [(ngModel)]="expense.expenseCategoryId" #expenseCategoryId="ngModel" required name="incomCategoryId" id="incomCategoryId" [ngClass]="{'form-control' : true,
+          'is-invalid' : !expenseCategoryId?.valid && expenseCategoryId?.touched,
+          'is-valid' : expenseCategoryId?.valid && expenseCategoryId?.touched}">
+          <option *ngFor="let detail of details" value='{{detail.expenseCategoryId}}'>{{detail.expenseCategoryName}}</option>
+      </select>
+
+                <small *ngIf="expenseCategoryId?.errors?.required && expenseCategoryId?.touched" class="form-text custom-invalid-feedback color">Category is not selected</small>
+            </div>
+        </div>
+        <div class="row form-group mb-0">
+            <div class="col col-xs-6 col-sm-6 col-md-6 col-lg- 6 pl-5 form-group">
+                <label for="fntext"> 
+        <h4>Amount<sup class="color">*</sup></h4>
+      </label>
+            </div>
+            <div class="col-sm-6 col-xs-6 col-lg-6 col-md-6 pr-5">
+                <input type="text" placehoder="Amount" #annualref="ngModel" ngModel [(ngModel)]='expense.amount' name="annual" required [ngClass]="{'form-control': true }" />
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col  col-xs-6 col-sm-6 col-md-6 col-lg-6 pl-5">
+                <h4>Date<sup class="color">*</sup></h4>
+            </div>
+            <div class="col-sm-6 col-xs-6 col-md-6 col-lg-6 pr-5">
+                <input type="date" ngModel [(ngModel)]='expense.transDate' required placeholder="from" name="from_date" id="from_date" #from_date="ngModel" [ngClass]="{'form-control': true, 
+                'is-invalid': !from_date?.valid && from_date?.touched,  
+                'is-valid': from_date?.valid && from_date?.touched}">
+                <small id="fnHelp" *ngIf="from_date?.errors?.required && from_date?.touched" class="form-text custom-invalid-feedback color">Field is required</small>
+                <small id="fnHelp" *ngIf="from_date?.errors?.minlength && from_date?.touched" class="form-text custom-invalid-feedback color">First Name requires atleast 2 characters.</small>
+            </div>
+        </div>
+        <div class="row form-group">
+            <div class="col col-xs-6 col-md-6 col-lg-6 pl-5 form-group">
+                <label for="fntext">
+        <h4>Remark<sup class="color">*</sup></h4>
+      </label>
+            </div>
+            <div class="col-sm-6 col-xs-6 col-md-6 col-lg-6 pr-5">
+                <input type="text" #remarkref="ngModel" ngModel [(ngModel)]='expense.remark' name="remark" required placeholder="remark" [ngClass]="{'form-control': true, 
+                'is-invalid': !remarkref?.valid && remarkref?.touched,  
+                'is-valid': remarkref?.valid && remarkref?.touched}">
+                <small id="fnHelp" *ngIf="remarkref?.errors?.required && remarkref?.touched" class="form-text custom-invalid-feedback color">Field is required</small>
+                <small id="fnHelp" *ngIf="remarkref?.errors?.minlength && remarkref?.touched" class="form-text custom-invalid-feedback color">Remark requires atleast 2 characters.
+                </small>
+            </div>
+        </div>
+        <div class="row form-group " style="margin-top: -2%;">
+            <div class="col col-sm-6 col-xs-6 col-md-6 col-lg-6 pl-5 form-group">
+                <label for="fntext">
+        <h4>ReceiveMode</h4>
+      </label>
+            </div>
+            <div class="col-sm-6 col-xs-6 col-md-6 col-lg-6">
+                <div class=" form-check-inline mrt-5">
+                    <h4>
+                        <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="radio1" id="receiveMode" name="receiveMode" #receiveMode="ngModel" [(ngModel)]="expense.receiveMode" value="CE">Cash Receipt
+          </label></h4>
+                </div>
+                <div class="form-check-inline mrt-5">
+                    <h4>
+                        <label class="form-check-label">
+            <input type="radio" class="form-check-input" name="radio1" id="receiveMode" name="receiveMode" #receiveMode="ngModel" [(ngModel)]="expense.receiveMode" value="BE"> Bank Receipt
+          </label></h4>
+                </div>
+            </div>
+        </div>
+        <div class="d-flex justify-content-between mrt-4">
+            <button type="button" class="btn btncancel btn-sm bg-red  btn-md btn-lg">
+                <h4 class="mt-o mb-0 btnText" routerLink=" ">Cancel</h4>
+            </button>
+            <button type="button" class="btn btnsubmit btn-sm  btn-md btn-lg" (click)="saveExpense(expenseForm)" [disabled]="expenseForm.invalid">
+              <h4 class="mt-o mb-0 btnText"><span *ngIf="spinner_status == 1" class="spinner-border spinner-border-sm text-white"></span>&nbsp;&nbsp;Submit</h4>
+            </button>
+        </div>
+    </form>
+</div>

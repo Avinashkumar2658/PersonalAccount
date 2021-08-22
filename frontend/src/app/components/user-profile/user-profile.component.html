@@ -1,0 +1,85 @@
+<div class="container-fluid font-weight-bold">
+    <section class="content" *ngIf='message'>
+        <div class="card card-success">
+            <div class="card-header">
+                <h3 class="card-title text-center"> {{message}}</h3>
+                <div class="card-tools">
+                    <button type="button" class="btn btn-tool" data-card-widget="remove" data-toggle="tooltip" title="Remove">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <div class="container">
+        <h2 class="pt-2 pb-0 header">Profile</h2>
+    </div>
+    <form action="" #updateUserForm="ngForm">
+        <div class="row  form-group"><br>
+            <div class="col col-xs-6 col-sm-6 col-md-6 col-lg-6 pl-5"><br>
+                <h4>User Name<sup class="color">*</sup></h4>
+            </div>
+            <div class="col-sm-6 col-xs-6 col-md-6 col-lg-6 pr-5"><br>
+                <input type="text" class="mrInput" #user_name="ngModel" [disabled]="true" ngModel [(ngModel)]='user.userName' name="user_name" placeholder="User Name" minlength="2" required [ngClass]="{'form-control': true}">    
+            </div>
+        </div>
+        <div class="row  form-group"><br>
+            <div class="col col-xs-6 col-sm-6 col-md-6 col-lg-6 pl-5"><br>
+                <h4>Name<sup class="color">*</sup></h4>
+            </div>
+            <div class="col-sm-6 col-xs-6 col-md-6 col-lg-6 pr-5"><br>
+                <input type="text" class="mrInput" #name="ngModel" ngModel [(ngModel)]='user.name' name="name" placeholder="Name" required [ngClass]="{'form-control': true, 
+             'is-invalid': !name?.valid && name?.touched,  
+             'is-valid': name?.valid && name?.touched}">
+                <small id="fnHelp" *ngIf="name?.errors?.required && name?.touched" class="form-text custom-invalid-feedback color">Field is required</small>
+                <small id="fnHelp" *ngIf="name?.errors?.minlength && name?.touched" class="form-text custom-invalid-feedback color">First Name requires atleast 2 characters.</small>
+            </div>
+        </div>
+        <div class="row  form-group"><br>
+            <div class="col col-xs-6 col-sm-6 col-md-6 col-lg-6 pl-5"><br>
+                <h4>Address<sup class="color">*</sup></h4>
+            </div>
+            <div class="col-sm-6 col-xs-6 col-md-6 col-lg-6 pr-5"><br>
+                <input type="text" class="mrInput" #address="ngModel" ngModel [(ngModel)]='user.address' name="address" placeholder="Address" required minlength="10" [ngClass]="{'form-control': true, 
+                    'is-invalid': !address?.valid && address?.touched,  
+                     'is-valid': address?.valid && address?.touched}">
+                <small id="fnHelp" *ngIf="address?.errors?.required && address?.touched" class="form-text custom-invalid-feedback color">Field is required</small>
+                <small id="fnHelp" *ngIf="address?.errors?.minlength && address?.touched" class="form-text custom-invalid-feedback color">requires atleast 10 characters. </small>
+            </div>
+        </div>
+        <div class="row  form-group"><br>
+            <div class="col col-xs-6 col-sm-6 col-md-6 col-lg-6 pl-5"><br>
+                <h4>Mobile Number<sup class="color">*</sup></h4>
+            </div>
+            <div class="col-sm-6 co col-xs-6 col-md-6 col-lg-6 pr-5"><br>
+                <input type="text" class="mrInput" #mobile="ngModel" ngModel [(ngModel)]='user.mobileNo' name="mobile" pattern="^[6789][0-9]{9}$" placeholder="mobile number" required [ngClass]="{'form-control': true, 
+                    'is-invalid': !mobile?.valid && mobile?.touched,  
+                    'is-valid': mobile?.valid && mobile?.touched}">
+                <small id="fnHelp" *ngIf="mobile?.errors?.required && mobile?.touched" class="form-text custom-invalid-feedback color">Field is required</small>
+                <small id="fnHelp" *ngIf="mobile?.errors?.pattern && mobile?.touched" class="form-text custom-invalid-feedback color">Invalid mobile number.</small>
+            </div>
+        </div><br>
+        <div class="row form-group">
+            <div class="col col-xs-6 col-md-6 col-lg-6 pl-5 form-group">
+                <label for="fntext">
+                    <h4>Email<sup class="color">*</sup></h4>
+                </label>
+            </div>
+            <div class="col-sm-6 col-xs-6 col-md-6 col-lg-6 pr-5">
+                <input type="email" #email="ngModel" ngModel [(ngModel)]='user.recoveryEmail' name="email" required pattern="^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" placeholder="email" [ngClass]="{'form-control': true, 
+                    'is-invalid': !email?.valid && email?.touched,  
+                    'is-valid': email?.valid && email?.touched}">
+                <small id="fnHelp" *ngIf="email?.errors?.required && email?.touched" class="form-text custom-invalid-feedback color">Field is required</small>
+                <small id="fnHelp" *ngIf="email?.errors?.pattern && email?.touched" class="form-text custom-invalid-feedback color">Invalid email</small>
+            </div>
+        </div>
+        <div class="d-flex justify-content-between">
+            <button type="button" class="btn btncancel btn-sm bg-red  btn-md btn-lg">
+                <h4 class="mt-1 mb-0 btnText">Cancel</h4>
+            </button>
+            <button type="button" class="btn btnsubmit btn-sm  btn-md btn-lg" (click)="executeUpdateUser(updateUserForm)" [disabled]="updateUserForm.invalid">
+                <h4 class="mt-1 mb-0 btnText"><span *ngIf="spinner_status == 1" class="spinner-border spinner-border-sm text-white"></span>&nbsp;&nbsp;Update</h4>
+            </button>
+        </div>
+    </form>
+</div>

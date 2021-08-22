@@ -1,0 +1,64 @@
+<nav class="main-header navbar navbar-expand" style="margin-left: 0%;">
+
+    <ul class="navbar-nav pt5">
+        <li class="nav-item " style="padding-top: 13.5px;">
+            <a class="nav-link menu" data-widget="pushmenu" href="#" role="button">
+                Menu
+            </a>
+        </li>
+
+        <li class="nav-item pt5 fullWidthHome">
+            <a routerLink=" " class="nav-link pt5">
+                Home
+            </a>
+        </li>
+        <li class="nav-item pt5">
+            <a routerLink="userprofile" class="nav-link pt5">
+                Profile
+            </a>
+        </li>
+        <li class="nav-item pt5">
+            <a role="button"  class="nav-link text-white pt5" (click)="logout()">
+               Logout
+            </a>
+        </li>
+    </ul>
+
+
+    <div class="d-flex justify-content-center center fullWidth">
+
+        <h2 style="color:rgb(252, 248, 11);   font-weight: 400; margin-top: -0.2rem;">Personal</h2>
+
+
+        <h3 style="color:rgb(245, 6, 6); margin-top: 0rem;  font-weight: 400;">Account</h3>
+
+    </div>
+
+
+
+
+
+
+
+    <ul class="navbar-nav ml-auto">
+
+        <li class="nav-item" style="padding-top: 8px;">
+            <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+                <i class="fa fa-calculator" aria-hidden="true"></i>
+            </a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link">
+                <div class="user-panel  d-flex">
+                    <div class="picture-container">
+                        <div class="picture" >
+                            <img  [src]="profilePhoto" class="picture-src" id="wizardPicturePreview" title="" >
+                            <input type="file"  id="selectedFiles" #imageName name="photo" (change)="onChange($event)" accept=".jpg,.jpeg,.png"/>
+                        </div>
+                    </div>
+
+                </div>
+            </a>
+        </li>
+    </ul>
+</nav>

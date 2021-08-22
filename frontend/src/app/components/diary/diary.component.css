@@ -1,0 +1,86 @@
+.card {
+    max-width: 50rem;
+    margin: auto;
+    margin-bottom: 3rem;
+    min-width: 30rem;
+    position: relative;
+    display: flex;
+    padding: 20px;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid #d2d2dc;
+    border-radius: 11px;
+    box-shadow: 0px 8px 16px 0px white;
+    
+
+}
+.notes_date {
+    margin-top: -0.7rem;
+    text-align: right;
+}
+.heading{
+    font: 1.2em sans-serif;
+    font-weight: 500;
+    color: #000;
+    margin-top: -1.4rem;;
+}
+.notes_detail {
+    font: 1em sans-serif;
+}
+.mt {
+    margin-top: -1rem;
+}
+
+.font {
+    font-family: 1.1em sans-serif;
+    font-weight: 500;
+    color: red;
+    margin-top: 0px;
+    margin-bottom: 0px;
+}
+.fontDate {
+    font-size: 0.7em;
+    text-align: right;
+}
+
+
+.comment-text {
+    font-size: 12px
+}
+
+.fs-12 {
+    font-size: 12px
+}
+
+.shadow-none {
+    box-shadow: none
+}
+
+.name {
+    color: #007bff
+}
+
+.cursor:hover {
+    color: blue
+}
+
+.cursor {
+    cursor: pointer
+}
+
+.textarea {
+    resize: none
+}
+
+.color{
+    color: red;
+}
+.trash {
+    outline : none;
+    border: none;
+    color: red;
+    margin-top: -1.5rem;
+}

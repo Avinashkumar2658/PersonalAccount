@@ -1,0 +1,76 @@
+.center {
+    text-align: center;
+}
+
+.inner {
+    min-width: 850px;
+    height: 86vh;
+    margin-top: 0.3%;
+    padding-top: 0%;
+}
+
+.outer {
+    padding: 0% !important;
+    margin-top: 1.8%;
+    margin-left: 28%;
+    overflow-y: scroll;
+    overflow-x: scroll;
+    width: 70%;
+}
+.thHeading {
+    text-align:center; 
+    line-height: 1rem;
+}
+
+.colorRed {
+   color: red;
+}
+.colorGreen {
+   color: rgb(3, 87, 3);
+}
+tbody {
+   background-color:#FFFFFF;
+}
+thead {
+   background-color: rgb(77, 72, 72);
+}
+.bgBlack {
+   background: black;
+}
+.closingBalance {
+    padding-left: 10rem !important;
+}
+button {
+   margin-bottom: 0.4rem; 
+   background-color: rgb(35, 245, 87); 
+}
+
+.trRowDetail {
+    line-height:0.7rem 
+}
+.biColor {
+    color: rgb(0, 38, 252);
+}
+.font {
+    color: rgb(255, 255, 255);
+    font: 1em sans-serif;
+}
+
+.fontBankBook {
+    color: rgb(255, 255, 255);
+    font: 1.3em sans-serif;
+    margin-bottom: -0.2rem;
+}
+
+.button {
+    text-align: center;
+}
+
+@media screen and (max-width: 970px) {
+    .outer {
+        padding: 0% !important;
+        margin: 2.5%;
+        width: 95%;
+        height: 86vh;
+    }
+}

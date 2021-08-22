@@ -1,0 +1,84 @@
+.inner {
+    min-width: 630px;
+    height: 86vh;
+    margin-top: 0.3%;
+    padding-top: 0%;
+}
+
+.outer {
+    padding: 0% !important;
+    margin-top: 1.8%;
+    margin-left: 28%;
+    overflow-y: scroll;
+    overflow-x: scroll;
+    width: 70%;
+}
+.newCategory {
+    margin:-5%;  
+}
+
+.btnfixed {
+    background: #92AD40;;
+    position: absolute;
+    color: rgb(255, 255, 255);
+    right: 0;
+    top: 0;
+    left: 0;
+    font: 1em sans-serif;
+    font-weight: 500;
+}
+
+.l {
+    width: 72%;
+    margin-left: 24.2%;
+    position: absolute;
+    right: 0;
+    top: 100px;
+    left: 0;
+}
+
+th {
+    color: rgb(248, 248, 248);
+}
+
+.floattop {
+    background-color: rgb(77, 72, 72);
+    color: rgb(255, 255, 255);
+}
+
+.mt {
+    margin-top: -0.5%;
+}
+
+.mb {
+    margin-bottom: -0.25%;
+    font: 1.5em sans-serif;
+    font-style: oblique;
+    font-family: sans-serif;
+    font-weight: 500;
+}
+
+.mth {
+    margin-top: -3%;
+    color: rgb(255, 255, 255);
+    font: 1em sans-serif;
+    padding-top: 0.6rem;
+}
+
+.color {
+    color: green
+}
+
+.table {
+    background-color: white;
+    width: 100%;
+}
+
+@media screen and (max-width: 970px) {
+    .outer {
+        padding: 0% !important;
+        margin: 2.5%;
+        width: 95%;
+        height: 86vh;
+    }
+}

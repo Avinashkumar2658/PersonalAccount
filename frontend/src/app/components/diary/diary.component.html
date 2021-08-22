@@ -1,0 +1,47 @@
+<div id="commentGroup">
+    <div class=" card border-0 rounded-4 mb-1 mt-5 alert alert-warning" *ngIf="spinner_status === 2">
+        <div class="text-center text-warning"><i class="icon fas fa-exclamation-triangle fa-3x"></i></div>
+        <p class="text-warning text-center">you have not any note now</p>
+    </div>
+    <div class="card rounded-4 mt-5 mb-1" *ngFor="let user_note of user_notes; let i = index;">
+        <div class="row">
+            <div class="col-6">
+                <button type="button" class="btn bg-white trash" (click)="deleteNote(user_note.diary_id)"><i class="fa fa-trash trash"></i></button>
+            </div>
+            <div class="col-6">
+        <p class="notes_date">{{user_note.createDate}}</p>    
+    </div>
+        </div>
+        <hr style="margin-top: -0.5rem;">
+        <div class="card-body">
+            <h4 class="text-center heading">{{user_note.notes_heading}}</h4>
+            <p class="notes_detail">{{user_note.notes_detail}}</p>
+            
+        </div>
+        <div class="bg-white p-2">
+            <div class="p-2 cursor" data-toggle="collapse" [attr.href]="'#collapse-' + i" (click)="showComment(user_note.diary_id)"><i class='far fa-comment  fa-2x' style="color: rgb(101, 214, 107);"></i><span class="ml-1">Comment</span></div><br>
+        </div>  
+  
+        <div class="collapse" [attr.id]="'collapse-' + i" data-parent="#commentGroup">    
+            <div class="card border-0 rounded-0 mb-1" style="box-shadow: 0px 8px 16px 0px white;">
+              <form #commentForm="ngForm">
+                <div class="d-flex flex-row align-items-start">
+                    <textarea class="ml-1 shadow-none textarea" name="comment" required minlength="5" ngModel [(ngModel)]="userComment.user_comment" #comment="ngModel" placeholder="Enter your Comment"
+                    [ngClass]="{'form-control': true, 
+                    'is-invalid': !comment?.valid && comment?.touched}"></textarea>
+               </div>
+               <small id="f" *ngIf="comment?.errors?.required && comment?.touched" class="form-text custom-invalid-feedback color">Field is required </small>
+                    <small id="f" *ngIf="comment?.errors?.minlength && comment?.touched" class="form-text custom-invalid-feedback color">comment requires atleast 5 characters.</small>
+
+                <div class="mt-2 text-right"><button class="btn btn-primary btn-sm shadow-none" type="button" [disabled]="commentForm.invalid" (click)="saveComment(user_note.diary_id, commentForm)"> <span *ngIf="spinner_status == 1" class="spinner-border spinner-border-sm text-white"></span>&nbsp;&nbsp;Post comment</button></div><br>
+              </form>
+              <div class="row" *ngFor="let user_comment_res of user_comments;">
+                <div class="card col-12">
+                    <p class="mt fontDate">{{user_comment_res.comment_date}}</p>
+                    <p class="font"> {{user_comment_res.comment}}</p>
+                </div> 
+              </div>                 
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,111 @@
+<div class="container-fluid outer">
+    <div class="inner">
+        <div class="d-flex justify-content-center floattop sticky-top bgLightBrown">
+            <h1 class="heading">Balance Sheet</h1>
+        </div>
+        <form #balanceSheet="ngForm">
+            <table class="table table-bordered   table-md table-lg table-sm table-xl mb-0">
+                <thead class="bgLightBrown">
+                    <tr>
+                        <th colspan="2" class="tableHeader">
+                            <h4 class="font mt-0 mb-0"> Date From </h4>
+                            <input type="date" #selected_date_from="ngModel" ngModel  name="selected_date_from" [(ngModel)]="from" required />
+                        </th>
+                        <th colspan="2 " class="tableHeader">
+                            <h4 class="font mt-0 mb-0">To</h4>
+                            <input type="date" #selected_date_to="ngModel" ngModel name="selected_date_to" [(ngModel)]="to" required/>
+                        </th>
+                        <th class="button">
+                            <button type="button" class="btn-primary font" style="margin-bottom: 0.6rem;" [disabled]="balanceSheet.invalid" (click)="executeFindBalanceSheet(from, to)"> Show
+                            </button>
+                        </th>
+                    </tr>
+                </thead>
+            </table>
+        </form>
+        <div class="container">
+            <table id="table_left" class="new  table table-bordered table-sm table-md table-lg table-xl">
+                <thead class="tableHeading">
+                    <tr>
+                        <th colspan=2>
+                            <h4 class="font mt-0 mb-0">Incomes</h4>
+                        </th>
+                    </tr>
+                    <tr>
+                        <th>
+                            <h3 class="font">Incomes</h3>
+                        </th>
+                        <th>
+                            <h3 class="font">Amount</h3>
+                        </th>
+                    </tr>
+                </thead>
+                <tr *ngFor='let detail of details[0]'>
+
+                    <td class="pdLeft5">
+                        {{detail[0]}}
+                    </td>
+
+                    <td class="pdLeft5">
+                        {{detail[1]}}
+                    </td>
+                </tr>
+                <thead class="tableHeading">
+                    <tr>
+                        <th>
+                            <h3 class="fontFooterTitle mt-0 mb-0">Total</h3>
+                        </th>
+                        <th>
+                            <h3 class="fontFooterTitle mt-0 mb-0">{{details[2]}}</h3>
+                        </th>
+                    </tr>
+                </thead>
+            </table>
+            <table id="table_right" class="new table  table-bordered table-sm table-md table-lg table-xl">
+                <thead class="bg-black tableRight">
+                    <tr>
+                        <th colspan=2>
+                            <h4 class="font mt-0 mb-0">Expenses</h4>
+                        </th>
+                    </tr>
+                    <tr class="bgBlack">
+                        <th>
+                            <h3 class="font">Expenses</h3>
+                        </th>
+                        <th>
+                            <h3 class="font">Amount</h3>
+                        </th>
+                    </tr>
+                </thead>
+                <tr *ngFor='let detail of details[1]'>
+
+                    <td class="pdLeft5">
+                        {{detail[0]}}
+                    </td>
+
+                    <td class="pdLeft5">
+                        {{detail[1]}}
+                    </td>
+                </tr>
+                <thead>
+                    <tr class="bgBlack">
+                        <th>
+                            <h3 class="fontFooterTitle mt-0 mb-0">Total</h3>
+                        </th>
+                        <th>
+                            <h3 class="fontFooterTitle mt-0 mb-0">{{details[3]}}</h3>
+                        </th>
+                    </tr>
+                </thead>
+                <tbody class="text-left">
+                    <tr>
+                      <td class="colorDarkGreen"><strong><h2>Gross profit</h2></strong></td>
+                      <td class="colorDarkGreen"><strong>
+                      <h2>{{grossProfit}}</h2>
+                      </strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

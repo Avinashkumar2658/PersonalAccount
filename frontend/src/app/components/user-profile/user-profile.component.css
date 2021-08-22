@@ -1,0 +1,83 @@
+.container-fluid {
+    margin-left: 32%;
+    margin-top: 4%;
+    width: 55%;
+}
+
+.container {
+    text-align: center;
+    padding: 0%;
+    background: black
+}
+
+.content {
+    height: 2vh;
+    width: 60%;
+    margin-left: 32%;
+}
+
+h4 {
+    color: black;
+}
+
+button {
+    width: 10rem;
+}
+
+.btnsubmit {
+    background: rgb(24, 180, 19);
+}
+
+.btncancel {
+    background-color: red;
+}
+
+.mrt-5 {
+    margin-top: -5%;
+}
+
+.header {
+    color: rgb(255, 255, 255);
+    font: 1.5em sans-serif;
+    font-weight: 400;
+}
+
+.mrt-4 {
+    margin-top: -3.5%;
+}
+.color {
+    color: red;
+}
+.btnText {
+    color:white;
+    font: 1.5em sans-serif; 
+    font-weight: normal;
+}
+@media screen and (max-width: 575px) {
+    .col {
+        display: none !important;
+    }
+    input,
+    .form-check-inline,
+    .d-flex {
+        margin-top: 1%;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .container-fluid {
+        width: 100%;
+        margin-left: 0%;
+    }
+    .container {
+        text-align: center;
+        padding: 0%;
+        max-width: 100%;
+        background-color: rgb(52, 176, 35);
+    }
+    .content {
+        width: 100%;
+        margin-left: 1.35%;
+        padding-right: 2.7%;
+    }
+}
